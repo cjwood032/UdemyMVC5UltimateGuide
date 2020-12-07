@@ -13,11 +13,16 @@ namespace UdemyMVC5UltimateGuide.Controllers
         {
             return View();
         }
-        public ActionResult Products()
+        public ActionResult About()
         {
-            return View("OurCompanyProducts");
+            return View();
+            //return View("OurCompanyProducts");
         }
         public ActionResult Contact()
+        {
+            return View();
+        }
+        public ActionResult Profile()
         {
             return View();
         }
