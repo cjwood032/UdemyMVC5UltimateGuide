@@ -42,6 +42,17 @@
                 <td>Student Marks</td>
                 <td>@ViewBag.Marks</td>
             </tr>
+            <tr>
+                <td>Pass/Fail</td>
+                <td>@{
+                    String result;
+                    if (ViewBag.Marks >= 60)
+                    { result = "Pass"; }
+                    else
+                    { result = "Fail";}
+                }
+                @result</td>
+            </tr>
         </table>
 
     </div>
