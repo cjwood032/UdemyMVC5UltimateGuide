@@ -21,5 +21,12 @@ namespace UdemyMVC5UltimateGuide.Controllers
         {
             return View();
         }
+        public ActionResult StudentDetails()
+        {
+            ViewBag.StudentId = 101;
+            ViewBag.StudentName = "Scott";
+            ViewBag.Marks = 80;
+            return View();
+        }
     }
 }
