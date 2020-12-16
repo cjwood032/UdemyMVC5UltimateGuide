@@ -15,7 +15,7 @@ namespace UdemyMVC5UltimateGuide.App_Start
         }
 
         // GET: Products/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
             var products = new[]
             {
@@ -31,7 +31,22 @@ namespace UdemyMVC5UltimateGuide.App_Start
             }
             return Content(prodName);
         }
-
+        public ActionResult GetProductId(string productName)
+        {
+            var products = new[]
+            {
+                new{ProductId = 1, ProductName="iPhone", Cost=999},
+                new{ProductId = 2, ProductName="Apple Watch", Cost=149},
+                new{ProductId = 3, ProductName="AirPod Max Pro Super", Cost=499},
+            };
+            int prodId = 0;
+            foreach (var pro in products)
+            {
+                if (pro.ProductName == productName)
+                    prodId = pro.ProductId;
+            }
+            return Content(prodId.ToString());
+        }
         // GET: Products/Create
         public ActionResult Create()
         {
