@@ -15,8 +15,11 @@ namespace UdemyMVC5UltimateGuide.App_Start
         }
 
         // GET: Products/Details/5
+        [Route("/Products/Details{id:range(1,3)?}")]
         public ActionResult Details(int? id)
         {
+            if (id == null)
+                return Content("Please pass an ID");
             var products = new[]
             {
                 new{ProductId = 1, ProductName="iPhone", Cost=999},
