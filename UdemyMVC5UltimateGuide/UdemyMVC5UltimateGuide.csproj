@@ -227,6 +227,9 @@
     <Content Include="Views\Home\StudentDetails.cshtml" />
     <Content Include="Views\Shared\_PartialPage1.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage2.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
