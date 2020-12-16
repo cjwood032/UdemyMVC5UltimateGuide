@@ -17,7 +17,19 @@ namespace UdemyMVC5UltimateGuide.App_Start
         // GET: Products/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var products = new[]
+            {
+                new{ProductId = 1, ProductName="iPhone", Cost=999},
+                new{ProductId = 2, ProductName="Apple Watch", Cost=149},
+                new{ProductId = 3, ProductName="AirPod Max Pro Super", Cost=499},
+            };
+            string prodName = "";
+            foreach( var pro in products)
+            {
+                if (pro.ProductId == id)
+                    prodName = pro.ProductName;
+            }
+            return Content(prodName);
         }
 
         // GET: Products/Create
