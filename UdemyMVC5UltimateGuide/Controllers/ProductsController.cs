@@ -17,8 +17,8 @@ namespace UdemyMVC5UltimateGuide.Controllers
             new Product() { ProductId = 102, ProductName = "Mobile", Rate = 38000 },
             new Product() { ProductId = 103, ProductName = "Bike", Rate = 94000 },
             };
-            ViewBag.Products = products;
-            return View();
+            //ViewBag.Products = products;
+            return View(products);
         }
         public ActionResult Details(int id)
         {
@@ -30,8 +30,8 @@ namespace UdemyMVC5UltimateGuide.Controllers
             new Product() { ProductId = 103, ProductName = "Bike", Rate = 94000 },
             };
             prod = products.Find(p => p.ProductId == id);
-            ViewBag.Product = prod;
-            return View();
+            //ViewBag.Product = prod;
+            return View(prod);
         }
     }
 }

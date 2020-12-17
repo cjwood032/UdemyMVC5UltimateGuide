@@ -1,8 +1,9 @@
-﻿
+﻿@model UdemyMVC5UltimateGuide.Models.Product
+
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutPage2.cshtml";
 }
-<h2>@ViewBag.Product.ProductId</h2>
-<h3>@ViewBag.Product.ProductName</h3>
-<h3>@ViewBag.Product.Rate </h3>
+<h2>@Model.ProductId</h2>
+<h3>@Model.ProductName</h3>
+<h3>@Model.Rate </h3>
