@@ -4,5 +4,27 @@
     Layout = "~/Views/Shared/_LayoutPage2.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Products</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Rate</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ foreach (UdemyMVC5UltimateGuide.Models.Product product in ViewBag.Products)
+            {
+                <tr>
+                    <td><a href="/Products/Details/@product.ProductId">@product.ProductId</a></td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Rate</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
 
