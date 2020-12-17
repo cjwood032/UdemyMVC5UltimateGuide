@@ -12,7 +12,10 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Rate</th>
+            <th>Price</th>
+            <th>Date of Purchase</th>
+            <th>Availability</th>
+            <th>CategoryID</th>
 
         </tr>
     </thead>
@@ -20,9 +23,12 @@
         @{ foreach (var product in Model)
             {
                 <tr>
-                    <td><a href="/Products/Details/@product.ProductId">@product.ProductId</a></td>
+                    <td><a href="/Products/Details/@product">@product.ProductID</a></td>
                     <td>@product.ProductName</td>
-                    <td>@product.Rate</td>
+                    <td>@product.Price</td>
+                    <td>@product.DateOfPurchase</td>
+                    <td>@product.AvailabilityStatus</td>
+                    <td>@product.CategoryID</td>
                 </tr>
             }
         }

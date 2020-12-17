@@ -4,18 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UdemyMVC5UltimateGuide.Models;
-
 namespace UdemyMVC5UltimateGuide.Controllers
 {
-    public class ProductsController : Controller
+    public class BrandsController : Controller
     {
-        // GET: Products
+        // GET: Brands
         public ActionResult Index()
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            List<Product> products = db.Products.ToList();
+            List<Brand> brands = db.Brands.ToList();
 
-            return View(products);
+            return View(brands);
+            
         }
     }
 }

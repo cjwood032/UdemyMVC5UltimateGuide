@@ -13,7 +13,10 @@ namespace UdemyMVC5UltimateGuide
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            ModelBinders.Binders.Add(typeof(Student), new CustomBinder());
+           // ModelBinders.Binders.Add(typeof(null), new CustomBinder());
         }
     }
+    
+
 }
+

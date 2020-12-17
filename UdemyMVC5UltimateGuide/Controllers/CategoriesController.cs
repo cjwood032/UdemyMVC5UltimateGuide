@@ -7,15 +7,15 @@ using UdemyMVC5UltimateGuide.Models;
 
 namespace UdemyMVC5UltimateGuide.Controllers
 {
-    public class ProductsController : Controller
+    public class CategoriesController : Controller
     {
-        // GET: Products
+        // GET: Categories
         public ActionResult Index()
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            List<Product> products = db.Products.ToList();
+            List<Category> categories = db.Categories.ToList();
 
-            return View(products);
+            return View(categories);
         }
     }
 }
