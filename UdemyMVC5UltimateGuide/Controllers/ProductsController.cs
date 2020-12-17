@@ -33,5 +33,14 @@ namespace UdemyMVC5UltimateGuide.Controllers
             //ViewBag.Product = prod;
             return View(prod);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Product p)
+        {
+            return View();
+        }
     }
 }
