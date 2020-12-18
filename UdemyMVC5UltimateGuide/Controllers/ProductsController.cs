@@ -18,5 +18,11 @@ namespace UdemyMVC5UltimateGuide.Controllers
 
             return View(products);
         }
+        public ActionResult Details(int id)
+        {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            Product product = db.Products.Where(p => p.ProductID==id).FirstOrDefault();
+            return View(product);
+        }
     }
 }
