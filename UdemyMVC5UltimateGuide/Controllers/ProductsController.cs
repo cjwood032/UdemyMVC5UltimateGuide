@@ -10,10 +10,11 @@ namespace UdemyMVC5UltimateGuide.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string search="")
         {
+            ViewBag.Search = search;
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            List<Product> products = db.Products.ToList();
+            List<Product> products = db.Products.Where(p =>p.ProductName.Contains(search)).ToList();
 
             return View(products);
         }

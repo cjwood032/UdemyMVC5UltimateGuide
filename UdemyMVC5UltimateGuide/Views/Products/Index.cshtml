@@ -6,7 +6,11 @@
 }
 
 <h2>Products</h2>
-<a href="@Url.Action("Create","Products")" >Create a Product</a>
+<form class="form-inline" action="/products/index">
+    <label for="search" class="mr-1">Name:</label>
+    <input type="search" class="form-control mr-1" id="search" name="search" placeholder="Search" value="@ViewBag.Search"/>
+    <button type="submit" class="btn btn-primary">GO</button>
+</form>
 <table class="table">
     <thead>
         <tr>
