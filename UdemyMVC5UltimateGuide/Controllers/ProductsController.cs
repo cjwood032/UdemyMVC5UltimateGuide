@@ -24,5 +24,17 @@ namespace UdemyMVC5UltimateGuide.Controllers
             Product product = db.Products.Where(p => p.ProductID==id).FirstOrDefault();
             return View(product);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Product product)
+        {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            db.Products.Add(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
