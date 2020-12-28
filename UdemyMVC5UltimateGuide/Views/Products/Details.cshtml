@@ -5,7 +5,7 @@
 }
 
 
-<h2>Product Details</h2>
+<h2>Product Details</h2> <a href="/Products/edit/@Model.ProductID">Edit</a>
 <table class="table">
     <tr>
         <th>Product ID</th>
@@ -21,7 +21,10 @@
     </tr>
     <tr>
         <th>Date of Purchase</th>
-        <td>@Model.DateOfPurchase.Value.ToString("d/M/yyyy")</td>
+        <td>@{if (@Model.DateOfPurchase != null)
+            {
+                Model.DateOfPurchase.Value.ToString("d/M/yyyy");
+            } }</td>
     </tr>
     <tr>
         <th>Availability Status</th>

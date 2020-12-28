@@ -1,0 +1,47 @@
+﻿@model UdemyMVC5UltimateGuide.Models.Product
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form action="/products/update/@Model.ProductID" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="ProductName" class="mr-1">Product Name:</label>
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            <input type="text" class="form-control mr-1" name="ProductName" placeholder="Product Name" value="@Model.ProductName"/>
+            <label for="Price" class="mr-1">Price:</label>
+            <input type="text" class="form-control mr-1" name="Price" placeholder="Price" value="@Model.Price" />
+        </div>
+        <div class="form-group col-md-4">
+            <label for="DateOfPurchase" class="mr-1">Date of Purchase:</label>
+            <input type="date" class="form-control mr-1" name="DateOfPurchase" value="
+                   @{if (@Model.DateOfPurchase != null)
+                       {@Model.DateOfPurchase.Value.ToString("d/M/yyyy");
+                           }
+                       }"/>
+            <label for="AvailabilityStatus" class="mr-1">Availability:</label>
+            <input type="text" class="form-control mr-1" name="AvailabilityStatus" placeholder="Availability Status" value="@Model.AvailabilityStatus" />
+        </div>
+        <div class="form-group col-md-4">
+            <label for="CategoryID" class="mr-1">Category ID:</label>
+            <input type="text" class="form-control mr-1" name="CategoryID" placeholder="CategoryId" value="@Model.CategoryID"/>
+            <label for="BrandID" class="mr-1">Brand ID:</label>
+            <input type="text" class="form-control mr-1" name="BrandID" placeholder="Brand" value="@Model.BrandID" />
+
+
+        </div>
+        <div class="form-group col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="Active" name="Active" checked="@Model.Active" value="true" />
+                <label class="form-check-label" for=" Active">Active</label>
+            </div>
+
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-info">Update Product</button>
+</form>
+
+
