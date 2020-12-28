@@ -28,10 +28,15 @@ namespace UdemyMVC5UltimateGuide.Controllers
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
             Product product = db.Products.Where(p => p.ProductID == id).FirstOrDefault();
+            ViewBag.Categories = db.Categories.ToList();
+            ViewBag.Brands = db.Brands.ToList();
             return View(product);
         }
         public ActionResult Create()
         {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            ViewBag.Categories=db.Categories.ToList();
+            ViewBag.Brands = db.Brands.ToList();
             return View();
         }
         [HttpPost]

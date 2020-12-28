@@ -23,10 +23,23 @@
             </select>
         </div>
         <div class="form-group col-md-4">
-            <label for="CategoryID" class="mr-1">Category ID:</label>
-            <input type="text" class="form-control mr-1" name="CategoryID" placeholder="CategoryId" />
-            <label for="BrandID" class="mr-1">Brand ID:</label>
-            <input type="text" class="form-control mr-1" name="BrandID" placeholder="Brand" />
+            <label for="CategoryID" class="mr-1">Category:</label>
+            <select  class="form-control mr-1" name="CategoryID" ID="CategoryId" >
+                <option></option>
+                @foreach (var cat in ViewBag.Categories)
+                {
+                    <option value="cat.CategoryID">@cat.CategoryName</option>
+                }
+                </select>
+            <label for="BrandID" class="mr-1">Brand</label>
+            <select  class="form-control mr-1" name="BrandID" ID="BrandID" >
+                <option></option>
+            @foreach (var cat in ViewBag.Brands)
+                {
+                    <option value="cat.BrandID">@cat.BrandName</option>
+                }
+                    
+            </select>
 
 
         </div>
