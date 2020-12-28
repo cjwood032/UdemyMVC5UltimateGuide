@@ -57,5 +57,14 @@ namespace UdemyMVC5UltimateGuide.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public ActionResult Delete(Product product)
+        {
+            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            Product foundProduct = db.Products.Where(p => p.ProductID == product.ProductID).FirstOrDefault();
+            db.Products.Remove(foundProduct);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
