@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutPage2.cshtml";
 }
 
-<form  action="/products/create" method="delete">
+<form  action="/products/create" method="post">
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="ProductName" class="mr-1">Product Name:</label>
@@ -16,7 +16,11 @@
             <label for="DateOfPurchase" class="mr-1">Date of Purchase:</label>
             <input type="date" class="form-control mr-1" name="DateOfPurchase" />
             <label for="AvailabilityStatus" class="mr-1">Availability:</label>
-            <input type="text" class="form-control mr-1" name="AvailabilityStatus" placeholder="Availability Status" />
+            <select  class="form-control mr-1" name="AvailabilityStatus" id="AvailabilityStatus" >
+                <option value=""></option>
+                <option value="InStock">In Stock</option>
+                <option value="OutOfStock">Out of Stock</option>
+            </select>
         </div>
         <div class="form-group col-md-4">
             <label for="CategoryID" class="mr-1">Category ID:</label>
