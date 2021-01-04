@@ -11,10 +11,13 @@ namespace UdemyMVC5UltimateGuide.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Product
     {
+        
         public long ProductID { get; set; }
+        [Required]
         public string ProductName { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<System.DateTime> DateOfPurchase { get; set; }
