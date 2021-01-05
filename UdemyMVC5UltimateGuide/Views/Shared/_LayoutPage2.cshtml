@@ -17,17 +17,23 @@
             <li class="nav-item"><a class="nav-link" href="/categories/index">Categories</a></li>
             <li class="nav-item"><a class="nav-link" href="/brands/index">Brands</a></li>
             <li class="nav-item"><a class="nav-link" href="/products/index">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="/account/register">Register</a></li>
+            <li class="nav-item"><a class="nav-link" href="/account/login">Login</a></li>
         </ul>
-        <div>
-            @User.Identity.Name logged in 
-        </div>
+
+        @if (User.Identity.IsAuthenticated == true)
+        {
+            <div>
+                @User.Identity.Name logged in
+            </div>
+        }
+
     </nav>
-    @if(User.Identity.IsAuthenticated==true)
-    { 
+
     <div class="container-fluid">
         @RenderBody()
     </div>
-    }
+
 </body>
 </html>
 

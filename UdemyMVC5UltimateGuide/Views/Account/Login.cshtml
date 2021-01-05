@@ -1,0 +1,27 @@
+﻿@model UdemyMVC5UltimateGuide.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(a => a.Username)
+            @Html.TextBoxFor(a => a.Username, new { placeholder = "Username", @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Username)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(a => a.Password)
+            @Html.PasswordFor(a => a.Password, new { placeholder = "Password", @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Password)
+        </div>
+        
+        @Html.ValidationSummary()
+
+    </div>
+    <button type="submit" class="btn btn-outline-success">Log in</button>
+}

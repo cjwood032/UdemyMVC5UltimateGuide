@@ -11,7 +11,7 @@ namespace UdemyMVC5UltimateGuide.ViewModels
         public string Username { get; set; }
         [Required(ErrorMessage = "Password cannot be blank")]
         public string Password { get; set; }
-        [Required(ErrorMessage = "Confirm Passowrd cannot be blank")]
+        [Required(ErrorMessage = "Confirm Password cannot be blank")]
         [Compare("Password", ErrorMessage ="Passwords do not match") ]
         public string ConfirmPassword { get; set; }
         [Required(ErrorMessage = "Email cannot be blank")]
