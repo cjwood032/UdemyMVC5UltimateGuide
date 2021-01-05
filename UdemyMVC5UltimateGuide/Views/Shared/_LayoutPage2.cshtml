@@ -18,10 +18,16 @@
             <li class="nav-item"><a class="nav-link" href="/brands/index">Brands</a></li>
             <li class="nav-item"><a class="nav-link" href="/products/index">Products</a></li>
         </ul>
+        <div>
+            @User.Identity.Name logged in 
+        </div>
     </nav>
+    @if(User.Identity.IsAuthenticated==true)
+    { 
     <div class="container-fluid">
         @RenderBody()
     </div>
+    }
 </body>
 </html>
 
