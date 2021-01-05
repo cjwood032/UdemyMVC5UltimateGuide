@@ -69,7 +69,13 @@ namespace UdemyMVC5UltimateGuide.Controllers
                 ModelState.AddModelError("MyError", "Invalid username/password");
                 return View();
             }
-            return View();
+           
+        }
+        public ActionResult Logout()
+        {
+            var authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
