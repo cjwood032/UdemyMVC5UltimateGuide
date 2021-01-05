@@ -77,5 +77,13 @@ namespace UdemyMVC5UltimateGuide.Controllers
             authenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult MyProfile()
+        {
+            var appDbContext = new ApplicationDbContext();
+            var userStore = new ApplicationUserStore(appDbContext);
+            var userManager = new ApplicationUserManager(userStore);
+            ApplicationUser user= userManager.FindById(User.Identity.GetUserId());
+            return View(user);
+        }
     }
 }
