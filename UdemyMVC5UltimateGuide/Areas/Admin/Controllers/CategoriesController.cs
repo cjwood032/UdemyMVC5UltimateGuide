@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using UdemyMVC5UltimateGuide.Models;
 
-namespace UdemyMVC5UltimateGuide.Controllers
+namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
 {
     public class CategoriesController : Controller
     {

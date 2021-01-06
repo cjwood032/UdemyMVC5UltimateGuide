@@ -1,11 +1,11 @@
 ﻿@model UdemyMVC5UltimateGuide.Models.Product
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
 
-<h2>Product Details</h2> <a href="/Products/edit/@Model.ProductID">Edit</a>
+<h2>Product Details</h2> <a href="/admin/Products/edit/@Model.ProductID">Edit</a>
 <table class="table">
     <tr>
         <th>Product ID</th>
@@ -40,6 +40,6 @@
     </tr>
 </table>
 
-<a href="/products/index">Back to Products</a>
+<a href="/admin/products/index">Back to Products</a>
 
 

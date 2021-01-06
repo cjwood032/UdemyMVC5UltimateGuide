@@ -1,9 +1,9 @@
 ﻿@model UdemyMVC5UltimateGuide.Models.Product
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
-@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Products",new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-row">
         <div class="form-group col-md-4">

@@ -1,7 +1,7 @@
 ﻿@model List<UdemyMVC5UltimateGuide.Models.Category>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
 <h2>Categories</h2>
@@ -19,7 +19,7 @@
         @{ foreach (var category in Model)
             {
                 <tr>
-                    <td><a href="/Category/Details/@category.CategoryID">@category.CategoryID</a></td>
+                    <td><a href="/admin/Category/Details/@category.CategoryID">@category.CategoryID</a></td>
                     <td>@category.CategoryName</td>
                     
                 </tr>

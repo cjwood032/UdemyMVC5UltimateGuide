@@ -62,7 +62,18 @@ namespace UdemyMVC5UltimateGuide.Controllers
                 var authenticationManager = HttpContext.GetOwinContext().Authentication;
                 var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                 authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                return RedirectToAction("Index", "Home");
+                if (userManager.IsInRole(user.Id,"Admin"))
+                {
+                    return RedirectToAction("Index", "Home", new { area = "Admin" });
+                }
+                else if (userManager.IsInRole(user.Id, "Manager"))
+                {
+                    return RedirectToAction("Index", "Home", new { area = "Manager" });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {

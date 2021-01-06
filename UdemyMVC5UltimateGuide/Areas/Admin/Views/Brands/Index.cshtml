@@ -1,7 +1,7 @@
 ﻿@model List<UdemyMVC5UltimateGuide.Models.Brand>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
 <h2>Brands</h2>
@@ -19,7 +19,7 @@
         @{ foreach (var brand in Model)
             {
                 <tr>
-                    <td><a href="/Brand/Details/@brand.BrandID">@brand.BrandID</a></td>
+                    <td><a href="/admin/Brand/Details/@brand.BrandID">@brand.BrandID</a></td>
                     <td>@brand.BrandName</td>
                 </tr>
             }

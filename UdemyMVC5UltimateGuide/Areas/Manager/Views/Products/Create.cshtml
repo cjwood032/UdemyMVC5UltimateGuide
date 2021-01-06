@@ -1,0 +1,43 @@
+﻿@model UdemyMVC5UltimateGuide.Models.Product
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Manager/Views/Shared/_ManagerLayoutPage1.cshtml";
+}
+@using (Html.BeginForm("Create", "Products",new { area = "Manager" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-row">
+        <div class="form-group col-md-4">
+
+            @Html.LabelFor(m => m.ProductName)
+            @Html.TextBoxFor(m => m.ProductName, new { placeholder = "Product Name", @class = "form-control"  })
+            @Html.LabelFor(m => m.Price)
+            @Html.TextBoxFor(m => m.Price, new { placeholder = "Product Price", @class = "form-control"  })
+        </div>
+        <div class="form-group col-md-4">
+            @Html.LabelFor(m => m.DateOfPurchase)
+            @Html.TextBoxFor(m => m.ProductName, new { placeholder = "Date of Purchase",@class="form-control"})
+            @Html.LabelFor(m => m.AvailabilityStatus)
+            @Html.DropDownListFor(m => m.AvailabilityStatus, new List<SelectListItem>()
+       {
+           new SelectListItem() {Text="in Stock", Value="InStock"},
+           new SelectListItem() {Text="out of Stock", Value="OutOFStock"}
+       }, "Please Select", new { @class="form-control"})
+        </div>
+        <div class="form-group col-md-4">
+            @Html.LabelFor(m => m.CategoryID)
+            @Html.DropDownListFor(m => m.CategoryID, new SelectList(ViewBag.Categories, "CategoryID", "CategoryName"), "Please Select", new { @class = "form-control" })
+
+            @Html.LabelFor(m => m.BrandID)
+            @Html.DropDownListFor(m => m.BrandID, new SelectList(ViewBag.Brands, "BrandID", "BrandName"), "Please Select", new { @class = "form-control" })
+
+
+        </div>
+        <div class="form-group col-md-6">
+            @Html.CheckBoxFor(m => m.Active.Value, new { @class = "form-check-input", value = "true" })
+            @Html.LabelFor(m => m.Active, new { @class = "form-check-label" })
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-info">Create Product</button>
+}
+
+

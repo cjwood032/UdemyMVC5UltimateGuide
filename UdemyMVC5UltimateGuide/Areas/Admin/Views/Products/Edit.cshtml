@@ -1,15 +1,15 @@
 ﻿@model UdemyMVC5UltimateGuide.Models.Product
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
 <h2>Edit</h2>
-<form action="/products/delete/@Model.ProductID" method="post">
+<form action="/admin/products/delete/@Model.ProductID" method="post">
     <input type="hidden" name="ProductID" value="@Model.ProductID" />
     <button type="submit" class="btn btn-outline-danger">Delete Product</button>
 </form>
-<form action="/products/update/@Model.ProductID" method="post">
+<form action="/admin/products/update/@Model.ProductID" method="post">
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="ProductName" class="mr-1">Product Name:</label>
@@ -31,13 +31,13 @@
         <div class="form-group col-md-4">
 
             <label for="CategoryID" class="mr-1">Category:</label>
-            <select class="form-control mr-1" name="CategoryID" ID="CategoryId">
+            <select class="form-control mr-1" name="CategoryID" ID="CategoryID">
                 <option></option>
                 @foreach (var cat in ViewBag.Categories)
                 {
                     if (cat.CategoryID == Model.CategoryID)
                     {
-                        <option value="cat.CategoryID" selected="selected">@cat.CategoryName</option>
+                        <option value="Model.CategoryID" selected="selected">@cat.CategoryName</option>
                     }
                     else
                     {
