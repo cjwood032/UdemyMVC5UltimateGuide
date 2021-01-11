@@ -298,6 +298,7 @@
     <Compile Include="Filters\AdminAuthorization.cs" />
     <Compile Include="Filters\CustomerAuthorization.cs" />
     <Compile Include="Filters\ManagerAuthorization.cs" />
+    <Compile Include="Filters\MyActionFilter.cs" />
     <Compile Include="Filters\MyAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
