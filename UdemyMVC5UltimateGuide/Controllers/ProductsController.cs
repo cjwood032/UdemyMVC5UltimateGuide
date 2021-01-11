@@ -12,6 +12,7 @@ namespace UdemyMVC5UltimateGuide.Controllers
     {
         // GET: Products
         [MyAuthenticationFilter]
+        [CustomerAuthorization]
         public ActionResult Index()
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
