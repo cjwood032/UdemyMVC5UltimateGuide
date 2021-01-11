@@ -11,6 +11,7 @@ namespace UdemyMVC5UltimateGuide.Controllers
     {
         // GET: Home
         [MyActionFilter]
+        [MyResultFilter]
         public ActionResult Index()
         {
             return View();

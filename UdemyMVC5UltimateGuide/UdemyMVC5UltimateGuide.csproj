@@ -300,6 +300,7 @@
     <Compile Include="Filters\ManagerAuthorization.cs" />
     <Compile Include="Filters\MyActionFilter.cs" />
     <Compile Include="Filters\MyAuthenticationFilter.cs" />
+    <Compile Include="Filters\MyResultFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
