@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UdemyMVC5UltimateGuide.Filters;
 
 namespace UdemyMVC5UltimateGuide.Areas.Manager.Controllers
 {
+    [ManagerAuthorization]
     public class HomeController : Controller
     {
         // GET: Manager/Home
