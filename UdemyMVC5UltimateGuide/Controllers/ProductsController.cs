@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UdemyMVC5UltimateGuide.Models;
+using UdemyMVC5UltimateGuide.Filters;
 
 namespace UdemyMVC5UltimateGuide.Controllers
 {
     public class ProductsController : Controller
     {
         // GET: Products
+        [MyAuthenticationFilter]
         public ActionResult Index()
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
