@@ -94,6 +94,7 @@ namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
         {
             EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
