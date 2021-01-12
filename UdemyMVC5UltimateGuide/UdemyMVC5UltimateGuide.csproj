@@ -136,6 +136,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Error.html" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
@@ -300,6 +301,7 @@
     <Compile Include="Filters\ManagerAuthorization.cs" />
     <Compile Include="Filters\MyActionFilter.cs" />
     <Compile Include="Filters\MyAuthenticationFilter.cs" />
+    <Compile Include="Filters\MyExceptionFilter.cs" />
     <Compile Include="Filters\MyResultFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
