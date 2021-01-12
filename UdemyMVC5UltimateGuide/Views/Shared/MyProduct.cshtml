@@ -1,0 +1,15 @@
+﻿@model UdemyMVC5UltimateGuide.Models.Product
+
+@{
+    ViewBag.Title = "MyProduct";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.ProductName</h5>
+        <p class="card-text">@Model.Price</p>
+        <p class="card-text"><small class="text-muted">@(Model.Brand!=null?Model.Brand.BrandName:"")</small></p>
+        <p class="card-text"><small class="text-muted">@(Model.Category!=null?Model.Category.CategoryName:"")</small></p>
+    </div>
+</div>
+
