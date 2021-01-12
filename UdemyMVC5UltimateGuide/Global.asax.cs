@@ -13,6 +13,7 @@ namespace UdemyMVC5UltimateGuide
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
            // ModelBinders.Binders.Add(typeof(null), new CustomBinder());
         }
     }
