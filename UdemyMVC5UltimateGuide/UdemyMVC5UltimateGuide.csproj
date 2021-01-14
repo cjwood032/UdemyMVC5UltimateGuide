@@ -401,6 +401,24 @@
       <DependentUpon>202101041653276_CountryColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Company.DataLayer\Company.DataLayer.csproj">
+      <Project>{4b21288f-dc8d-4af1-a174-82551a17ae90}</Project>
+      <Name>Company.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.DomainModels\Company.DomainModels.csproj">
+      <Project>{2e2dcd46-eb25-4ca6-8bcb-730dcdc178c3}</Project>
+      <Name>Company.DomainModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.ServiceContracts\Company.ServiceContracts.csproj">
+      <Project>{6f8f9b1e-b47f-47b2-be6b-a629facca43a}</Project>
+      <Name>Company.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.ServiceLayer\Company.ServiceLayer.csproj">
+      <Project>{0594db2a-e754-44d2-85d0-2b672c25587a}</Project>
+      <Name>Company.ServiceLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

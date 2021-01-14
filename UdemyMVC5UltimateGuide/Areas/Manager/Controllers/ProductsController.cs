@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using UdemyMVC5UltimateGuide.Models;
+using Company.DomainModels;
 using UdemyMVC5UltimateGuide.Filters;
-
+using Company.DataLayer;
 namespace UdemyMVC5UltimateGuide.Areas.Manager.Controllers
 {
     [ManagerAuthorization]
@@ -14,7 +14,7 @@ namespace UdemyMVC5UltimateGuide.Areas.Manager.Controllers
         // GET: Products
         public ActionResult Index(string search = "", string SortColumn = "ProductID", string IconClass = "fa-sort-asc")
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             ViewBag.search = search;
             List<Product> products = db.Products.Where(temp => temp.ProductName.Contains(search)).ToList();
 
@@ -42,12 +42,12 @@ namespace UdemyMVC5UltimateGuide.Areas.Manager.Controllers
                 else
                     products = products.OrderByDescending(temp => temp.Price).ToList();
             }
-            else if (ViewBag.SortColumn == "DateOfPurchase")
+            else if (ViewBag.SortColumn == "DOP")
             {
                 if (ViewBag.IconClass == "fa-sort-asc")
-                    products = products.OrderBy(temp => temp.DateOfPurchase).ToList();
+                    products = products.OrderBy(temp => temp.DOP).ToList();
                 else
-                    products = products.OrderByDescending(temp => temp.DateOfPurchase).ToList();
+                    products = products.OrderByDescending(temp => temp.DOP).ToList();
             }
             else if (ViewBag.SortColumn == "AvailabilityStatus")
             {
@@ -75,13 +75,13 @@ namespace UdemyMVC5UltimateGuide.Areas.Manager.Controllers
         }
         public ActionResult Details(int id)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             Product product = db.Products.Where(p => p.ProductID == id).FirstOrDefault();
             return View(product);
         }
         public ActionResult Edit(int id)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             Product product = db.Products.Where(p => p.ProductID == id).FirstOrDefault();
             ViewBag.Categories = db.Categories.ToList();
             ViewBag.Brands = db.Brands.ToList();
@@ -89,7 +89,7 @@ namespace UdemyMVC5UltimateGuide.Areas.Manager.Controllers
         }
         public ActionResult Create()
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             ViewBag.Categories = db.Categories.ToList();
             ViewBag.Brands = db.Brands.ToList();
             return View();
@@ -97,7 +97,7 @@ namespace UdemyMVC5UltimateGuide.Areas.Manager.Controllers
         [HttpPost]
         public ActionResult Create(Product product)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             db.Products.Add(product);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -105,11 +105,11 @@ namespace UdemyMVC5UltimateGuide.Areas.Manager.Controllers
         [HttpPost]
         public ActionResult Update(Product product)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            CompanyDbContext db = new CompanyDbContext();
             Product foundProduct = db.Products.Where(p => p.ProductID == product.ProductID).FirstOrDefault();
             foundProduct.ProductName = product.ProductName;
             foundProduct.Price = product.Price;
-            foundProduct.DateOfPurchase = product.DateOfPurchase;
+            foundProduct.DOP = product.DOP;
             foundProduct.CategoryID = product.CategoryID;
             foundProduct.BrandID = product.BrandID;
             foundProduct.AvailabilityStatus = product.AvailabilityStatus;

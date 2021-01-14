@@ -26,7 +26,7 @@
           <Property Name="ProductID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductName" Type="varchar" MaxLength="50" />
           <Property Name="Price" Type="decimal" Precision="15" Scale="2" />
-          <Property Name="DateOfPurchase" Type="datetime" />
+          <Property Name="DOP" Type="datetime" />
           <Property Name="AvailabilityStatus" Type="varchar" MaxLength="50" />
           <Property Name="CategoryID" Type="bigint" />
           <Property Name="BrandID" Type="bigint" />
@@ -97,7 +97,7 @@
           <Property Name="ProductID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Decimal" Precision="15" Scale="2" />
-          <Property Name="DateOfPurchase" Type="DateTime" Precision="3" />
+          <Property Name="DOP" Type="DateTime" Precision="3" />
           <Property Name="AvailabilityStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CategoryID" Type="Int64" />
           <Property Name="BrandID" Type="Int64" />
@@ -170,7 +170,7 @@
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="DateOfPurchase" ColumnName="DateOfPurchase" />
+                <ScalarProperty Name="DOP" ColumnName="DOP" />
                 <ScalarProperty Name="AvailabilityStatus" ColumnName="AvailabilityStatus" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="BrandID" ColumnName="BrandID" />

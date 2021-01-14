@@ -1,4 +1,4 @@
-﻿@model List<UdemyMVC5UltimateGuide.Models.Product>
+﻿@model List<Company.DomainModels.Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
@@ -75,16 +75,16 @@
         <th style="width:10%">
             @if (ViewBag.IconClass == "fa-sort-desc")
             {
-                <a href="/admin/products/index?SortColumn=DateOfPurchase&IconClass=fa-sort-asc">Date of Purchase</a>
-                if (ViewBag.SortColumn == "DateOfPurchase")
+                <a href="/admin/products/index?SortColumn=DOP&IconClass=fa-sort-asc">Date of Purchase</a>
+                if (ViewBag.SortColumn == "DOP")
                 {
                     <i class="fa @ViewBag.IconClass"></i>
                 }
             }
             else
             {
-                <a href="/admin/products/index?SortColumn=DateOfPurchase&IconClass=fa-sort-desc">Date of Purchase</a>
-                if (ViewBag.SortColumn == "DateOfPurchase")
+                <a href="/admin/products/index?SortColumn=DOP&IconClass=fa-sort-desc">Date of Purchase</a>
+                if (ViewBag.SortColumn == "DOP")
                 {
                     <i class="fa @ViewBag.IconClass"></i>
                 }
@@ -170,7 +170,7 @@
             <td>@Html.DisplayFor(p=>item.ProductID)</td>
             <td>@Html.DisplayFor(p=>item.ProductName)</td>
             <td>@Html.DisplayFor(p=>item.Price)</td>
-            <td>@Html.DisplayFor(p=>item.DateOfPurchase)</td>
+            <td>@Html.DisplayFor(p=>item.DOP)</td>
             <td>@Html.DisplayFor(p=>item.AvailabilityStatus)</td>
             <td>@Html.DisplayFor(p=>item.Category.CategoryName)</td>
             <td>@Html.DisplayFor(p=>item.Brand.BrandName)</td>

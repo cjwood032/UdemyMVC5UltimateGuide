@@ -10,7 +10,7 @@ namespace UdemyMVC5UltimateGuide.Filters
     {
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (filterContext.HttpContext.User.IsInRole("Manager") == false)
+            if (filterContext.HttpContext.User.IsInRole("Admin") == false)
             {
                 filterContext.Result = new HttpUnauthorizedResult();
             }

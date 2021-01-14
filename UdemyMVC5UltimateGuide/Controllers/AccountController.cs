@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using UdemyMVC5UltimateGuide.Models;
+
 using UdemyMVC5UltimateGuide.ViewModels;
 using UdemyMVC5UltimateGuide.Identity;
-
+using Company.DomainModels;
+using Company.DataLayer;
 using Microsoft.AspNet.Identity;
 using System.Web.Helpers;
 using Microsoft.Owin.Security;

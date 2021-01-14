@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using UdemyMVC5UltimateGuide.Models;
+using Company.DomainModels;
 namespace UdemyMVC5UltimateGuide
 {
     public class MvcApplication : System.Web.HttpApplication

@@ -5,14 +5,14 @@ namespace UdemyMVC5UltimateGuide.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<UdemyMVC5UltimateGuide.Identity.ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Company.DataLayer.CompanyDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(UdemyMVC5UltimateGuide.Identity.ApplicationDbContext context)
+        protected override void Seed(Company.DataLayer.CompanyDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

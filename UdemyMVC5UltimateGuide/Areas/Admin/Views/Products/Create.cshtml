@@ -1,4 +1,4 @@
-﻿@model UdemyMVC5UltimateGuide.Models.Product
+﻿@model Company.DomainModels.Product
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
@@ -15,7 +15,7 @@
             @Html.TextBoxFor(m => m.Price, new { placeholder = "Product Price", @class = "form-control"  })
         </div>
         <div class="form-group col-md-4">
-            @Html.LabelFor(m => m.DateOfPurchase)
+            @Html.LabelFor(m => m.DOP)
             @Html.TextBoxFor(m => m.ProductName, new { placeholder = "Date of Purchase",@class="form-control"})
             @Html.LabelFor(m => m.AvailabilityStatus)
             @Html.DropDownListFor(m => m.AvailabilityStatus, new List<SelectListItem>()

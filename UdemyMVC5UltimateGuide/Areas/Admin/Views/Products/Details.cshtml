@@ -1,4 +1,4 @@
-﻿@model UdemyMVC5UltimateGuide.Models.Product
+﻿@model Company.DomainModels.Product
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
@@ -21,9 +21,9 @@
     </tr>
     <tr>
         <th>Date of Purchase</th>
-        <td>@{if (@Model.DateOfPurchase != null)
+        <td>@{if (@Model.DOP != null)
             {
-                Model.DateOfPurchase.Value.ToString("d/M/yyyy");
+                Model.DOP.Value.ToString("d/M/yyyy");
             } }</td>
     </tr>
     <tr>

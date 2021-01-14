@@ -3,19 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using UdemyMVC5UltimateGuide.Models;
+using Company.DomainModels;
+using Company.DataLayer;
 using UdemyMVC5UltimateGuide.Filters;
+using Company.ServiceContracts;
+using Company.ServiceLayer;
 namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
 {
     [AdminAuthorization]
     public class ProductsController : Controller
     {
+        CompanyDbContext db;
+        IProductsService prodService;
+        public ProductsController()
+        {
+            this.db = new CompanyDbContext();
+            this.prodService = new ProductsService();
+        }
         // GET: Products
         public ActionResult Index(string search="", string SortColumn="ProductID", string IconClass="fa-sort-asc")
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
+            
             ViewBag.search = search;
-            List<Product> products = db.Products.Where(temp => temp.ProductName.Contains(search)).ToList();
+            List<Product> products = prodService.SearchProducts(search);
 
             /*Sorting*/
             ViewBag.SortColumn = SortColumn;
@@ -41,12 +51,12 @@ namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
                 else
                     products = products.OrderByDescending(temp => temp.Price).ToList();
             }
-            else if (ViewBag.SortColumn == "DateOfPurchase")
+            else if (ViewBag.SortColumn == "DOP")
             {
                 if (ViewBag.IconClass == "fa-sort-asc")
-                    products = products.OrderBy(temp => temp.DateOfPurchase).ToList();
+                    products = products.OrderBy(temp => temp.DOP).ToList();
                 else
-                    products = products.OrderByDescending(temp => temp.DateOfPurchase).ToList();
+                    products = products.OrderByDescending(temp => temp.DOP).ToList();
             }
             else if (ViewBag.SortColumn == "AvailabilityStatus")
             {
@@ -74,21 +84,19 @@ namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
         }
         public ActionResult Details(int id)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            Product product = db.Products.Where(p => p.ProductID==id).FirstOrDefault();
+            Product product = prodService.GetProductByProductId(id);
             return View(product);
         }
         public ActionResult Edit(int id)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            Product product = db.Products.Where(p => p.ProductID == id).FirstOrDefault();
+
+            Product product = prodService.GetProductByProductId(id);
             ViewBag.Categories = db.Categories.ToList();
             ViewBag.Brands = db.Brands.ToList();
             return View(product);
         }
         public ActionResult Create()
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
             ViewBag.Categories=db.Categories.ToList();
             ViewBag.Brands = db.Brands.ToList();
             return View();
@@ -97,33 +105,19 @@ namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            db.Products.Add(product);
-            db.SaveChanges();
+            prodService.InsertProduct(product);
             return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Update(Product product)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            Product foundProduct = db.Products.Where(p => p.ProductID == product.ProductID).FirstOrDefault();
-            foundProduct.ProductName = product.ProductName;
-            foundProduct.Price = product.Price;
-            foundProduct.DateOfPurchase = product.DateOfPurchase;
-            foundProduct.CategoryID = product.CategoryID;
-            foundProduct.BrandID = product.BrandID;
-            foundProduct.AvailabilityStatus = product.AvailabilityStatus;
-            foundProduct.Active = product.Active;
-            db.SaveChanges();
+            prodService.UpdateProduct(product);
             return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Delete(Product product)
         {
-            EFDBFirstDatabaseEntities db = new EFDBFirstDatabaseEntities();
-            Product foundProduct = db.Products.Where(p => p.ProductID == product.ProductID).FirstOrDefault();
-            db.Products.Remove(foundProduct);
-            db.SaveChanges();
+            prodService.DeleteProduct(product);
             return RedirectToAction("Index");
         }
     }
