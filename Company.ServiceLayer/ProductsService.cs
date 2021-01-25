@@ -6,52 +6,43 @@ using System.Threading.Tasks;
 using Company.ServiceContracts;
 using Company.DomainModels;
 using Company.DataLayer;
+using Company.RepositoryContracts;
+using Company.RepositoryLayer;
 namespace Company.ServiceLayer
 {
     public class ProductsService :IProductsService
     {
-        CompanyDbContext db;
-        public ProductsService()
+        IProductsRepository prodRep;    
+        public ProductsService(IProductsRepository r)
         {
-            this.db = new CompanyDbContext();
+            this.prodRep = r;
         }
         public List<Product> GetProducts()
         {
-            List<Product> products = db.Products.ToList();
+            List<Product> products = prodRep.GetProducts();
             return products;
         }
         public List<Product> SearchProducts(string ProductName)
         {
-            List<Product> products = db.Products.Where(p => p.ProductName.Contains(ProductName)).ToList();
+            List<Product> products = prodRep.SearchProducts(ProductName);
             return products;
         }
         public Product GetProductByProductId(int ProductID)
         {
-            Product product = db.Products.Where(p => p.ProductID==ProductID).FirstOrDefault();
+            Product product = prodRep.GetProductByProductID(ProductID);
             return product;
         }
         public void InsertProduct(Product p)
         {
-            db.Products.Add(p);
-            db.SaveChanges();
+            prodRep.InsertProduct(p);
         }
         public void UpdateProduct(Product product)
         {
-            Product foundProduct = db.Products.Where(p => p.ProductID == product.ProductID).FirstOrDefault();
-            foundProduct.ProductName = product.ProductName;
-            foundProduct.Price = product.Price;
-            foundProduct.DOP = product.DOP;
-            foundProduct.CategoryID = product.CategoryID;
-            foundProduct.BrandID = product.BrandID;
-            foundProduct.AvailabilityStatus = product.AvailabilityStatus;
-            foundProduct.Active = product.Active;
-            db.SaveChanges();
+            prodRep.UpdateProduct(product);
         }
-        public void DeleteProduct(Product product)
+        public void DeleteProduct(long productID)
         {
-            Product foundProduct = db.Products.Where(p => p.ProductID == product.ProductID).FirstOrDefault();
-            db.Products.Remove(foundProduct);
-            db.SaveChanges();
+            prodRep.DeleteProduct(productID);
         }
     }
 }

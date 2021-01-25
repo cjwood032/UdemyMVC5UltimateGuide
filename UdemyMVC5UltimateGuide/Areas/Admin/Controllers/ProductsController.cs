@@ -15,10 +15,10 @@ namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
     {
         CompanyDbContext db;
         IProductsService prodService;
-        public ProductsController()
+        public ProductsController(IProductsService pService)
         {
             this.db = new CompanyDbContext();
-            this.prodService = new ProductsService();
+            this.prodService = pService;
         }
         // GET: Products
         public ActionResult Index(string search="", string SortColumn="ProductID", string IconClass="fa-sort-asc")
@@ -117,7 +117,7 @@ namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Delete(Product product)
         {
-            prodService.DeleteProduct(product);
+            prodService.DeleteProduct(product.ProductID);
             return RedirectToAction("Index");
         }
     }

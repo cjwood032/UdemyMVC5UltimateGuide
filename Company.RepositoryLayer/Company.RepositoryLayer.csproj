@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0594DB2A-E754-44D2-85D0-2B672C25587A}</ProjectGuid>
+    <ProjectGuid>{5FCEBE01-94A6-43E2-82CB-70C51BDE246B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Company.ServiceLayer</RootNamespace>
-    <AssemblyName>Company.ServiceLayer</AssemblyName>
+    <RootNamespace>Company.RepositoryLayer</RootNamespace>
+    <AssemblyName>Company.RepositoryLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductsService.cs" />
+    <Compile Include="ProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,14 +66,6 @@
     <ProjectReference Include="..\Company.RepositoryContracts\Company.RepositoryContracts.csproj">
       <Project>{f73d5b7a-b0d0-4a1a-90aa-c37aa0e7fe1d}</Project>
       <Name>Company.RepositoryContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Company.RepositoryLayer\Company.RepositoryLayer.csproj">
-      <Project>{5fcebe01-94a6-43e2-82cb-70c51bde246b}</Project>
-      <Name>Company.RepositoryLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Company.ServiceContracts\Company.ServiceContracts.csproj">
-      <Project>{6f8f9b1e-b47f-47b2-be6b-a629facca43a}</Project>
-      <Name>Company.ServiceContracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
