@@ -97,8 +97,8 @@ namespace UdemyMVC5UltimateGuide.Areas.Admin.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.Categories=db.Categories.ToList();
-            ViewBag.Brands = db.Brands.ToList();
+            ViewData["Categories"]=db.Categories.ToList();
+            ViewData["Brands"] = db.Brands.ToList();
             return View();
         }
         [HttpPost]
